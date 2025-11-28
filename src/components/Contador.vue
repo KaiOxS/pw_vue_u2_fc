@@ -11,7 +11,7 @@
     <p>{{ numero }} <sup>3</sup> = {{ obtenerCubo() }}</p>
     <div>
       <!--Las directivas en vue son plabras clave que permite a vue manipular el DOM de manera reactiva
-      toda directica en vue empieza con (v-)-->
+      toda directiva en vue empieza con (v-)-->
       <button v-on:click="incrementar()">+1</button>
       <!--El v-on tiene un shortcut también el cual es (@)-->
       <button @:click="decrementar()">-1</button>
@@ -86,7 +86,7 @@ export default {
 /* Todos los tipos: String, Number, Boolean, Array, Object, Date, Funciones, BigInt*/
 </script>
 
-<style>
+<style scoped>
 button {
   border: 1px solid black;
   background-color: aqua;
