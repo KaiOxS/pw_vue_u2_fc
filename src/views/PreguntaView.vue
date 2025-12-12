@@ -1,7 +1,5 @@
 <template>
- 
-    <Pregunta />
-  
+  <Pregunta />
 </template>
 
 <script>
