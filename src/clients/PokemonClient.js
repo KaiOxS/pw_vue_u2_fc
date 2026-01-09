@@ -10,7 +10,7 @@ const consumirAPI = async (id) => {
 	return respuesta;
 }
 
-obtenerVectorNumerico = () => {
+const obtenerVectorNumerico = () => {
 	const vector = [];
 	for (let i = 0; i - 4; i++) {
 		vector[i] = obteneAleatorio(1, 1025);
@@ -18,11 +18,11 @@ obtenerVectorNumerico = () => {
 	return vector;
 }
 
-const obtenerVectorPokemon = (vectorNumerico) => {
-	const data1 = consumirAPI(vectorNumerico[0]);
-	const data2 = consumirAPI(vectorNumerico[1]);
-	const data3 = consumirAPI(vectorNumerico[2]);
-	const data4 = consumirAPI(vectorNumerico[3]);
+const obtenerVectorPokemon = async (vectorNumerico) => {
+	const data1 = await consumirAPI(vectorNumerico[0]);
+	const data2 = await consumirAPI(vectorNumerico[1]);
+	const data3 = await consumirAPI(vectorNumerico[2]);
+	const data4 = await consumirAPI(vectorNumerico[3]);
 
 	const obj1 = {
 		nombre: data1.name,
@@ -42,7 +42,16 @@ const obtenerVectorPokemon = (vectorNumerico) => {
 	const obj4 = {
 		nombre: data4.name,
 		id: data4.id
+
 	}
+	return [obj1, obj2, obj3, obj4];
 
+}
+export async function obtenerVectorPokemonFachada() {
+	const vector = obtenerVectorNumerico();
+	return await obtenerVectorPokemon(vector);
+}
 
+export function obteneAleatorioFachada(min, max) {
+	return obteneAleatorio(min, max);
 }
